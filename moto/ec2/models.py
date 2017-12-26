@@ -1173,7 +1173,7 @@ class AmiBackend(object):
                 lambda o: context.get_current_user()
                 if context and o == 'self' else o,
                 owners)
-            images = [ami for ami in images if ami.owner_id in owners]
+            images = [ami for ami in images if ami.owner_id in list(owners)]
 
         if ami_ids:
             images = [ami for ami in images if ami.id in ami_ids]
